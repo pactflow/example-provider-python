@@ -23,7 +23,7 @@ services:
       - TRAVIS_BRANCH
     command: >
       verify
-      ${PACT_URL} \
+      ${PACT_URL}
       --provider-base-url http://api:8000
       --provider pactflow-example-provider-python
       --provider-app-version ${TRAVIS_COMMIT}
