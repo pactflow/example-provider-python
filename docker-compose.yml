@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  api:
+    image: tiangolo/uvicorn-gunicorn-fastapi:python3.7
+    volumes:
+      - ./app:/app
+    expose:
+      - "8000"
+    environment:
+      - PORT=8000
+
+  pact_verifier:
+    image: pactfoundation/pact-cli:latest
+    depends_on:
+      - api
+    environment:
+      - PACT_BROKER_BASE_URL
+      - PACT_BROKER_TOKEN
+      - PACT_BROKER_PUBLISH_VERIFICATION_RESULTS
+      - PACT_URL
+      - TRAVIS_COMMIT
+      - TRAVIS_BRANCH
+    command: >
+      verify
+      ${PACT_URL} \
+      --provider-base-url http://api:8000
+      --provider pactflow-example-provider-python
+      --provider-app-version ${TRAVIS_COMMIT}
+      --provider-version-tag ${TRAVIS_BRANCH}
+      --wait 10
