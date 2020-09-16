@@ -23,4 +23,18 @@ Because Travis CI only allows us to have one build configuration per repository,
 
 ## Usage
 
-See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for b ackground.
+See the [Pactflow CI/CD Workshop](https://github.com/pactflow/ci-cd-workshop) for background.
+
+To run the tests locally, run:
+
+```
+make test
+```
+
+To run the "fake ci" task:
+```
+export PACT_BROKER_BASE_URL=https://test.pactflow.io
+export PACT_BROKER_USERNAME=dXfltyFMgNOFZAxr8io9wJ37iUpY42M
+export PACT_BROKER_PASSWORD=O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1
+make fake_ci
+```

@@ -1,7 +1,7 @@
 PACTICIPANT := "pactflow-example-provider-python"
 WEBHOOK_UUID := "c76b601e-d66a-4eb1-88a4-6ebc50c0df8b"
 TRIGGER_PROVIDER_BUILD_URL := "https://api.travis-ci.com/repo/pactflow%2Fexample-provider-python/requests"
-PACT_CLI="docker run --network host --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN -e PACT_BROKER_PUBLISH_VERIFICATION_RESULTS pactfoundation/pact-cli:latest"
+PACT_CLI="docker run --network host --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN -e PACT_BROKER_PUBLISH_VERIFICATION_RESULTS -e PACT_BROKER_USERNAME -e PACT_BROKER_PASSWORD pactfoundation/pact-cli:latest"
 
 # Only deploy from master
 ifeq ($(TRAVIS_BRANCH),master)
