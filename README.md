@@ -1,16 +1,18 @@
 # Example Provider
 
-[![Build Status](https://travis-ci.com/pactflow/example-provider-python.svg?branch=master)](https://travis-ci.com/pactflow/example-provider-python)
+![Build](https://github.com/pactflow/example-provider-python/workflows/Build/badge.svg)
 
-[![Pact Status](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python-python/latest/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python-python/latest) (latest pact)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-provider-python/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/overview/provider/pactflow-example-consumer-python/consumer/pactflow-example-consumer-python)
 
-[![Pact Status](https://test.pactflow.io/matrix/provider/pactflow-example-provider-python/latest/prod/consumer/consumer-python-example-provider-python/latest/prod/badge.svg?label=provider)](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python-python/latest/prod) (prod/prod pact)
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest) (latest pact)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest/master) (master/master pact) 
 
 This is an example of a Python FastAPI provider that uses Pact, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
-It is using a public tenant on Pactflow, which you can access [here](https://test.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://test.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest).
+It is using a public tenant on Pactflow, which you can access [here](https://testdemo.pactflow.io) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`. The latest version of the Example Consumer/Example Provider pact is published [here](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-python/consumer/pactflow-example-consumer-python/latest).
 
 ## Pact verifications
 
@@ -37,7 +39,7 @@ make test
 
 To run the "fake ci" task:
 ```
-export PACT_BROKER_BASE_URL=https://test.pactflow.io
+export PACT_BROKER_BASE_URL=https://testdemo.pactflow.io
 export PACT_BROKER_USERNAME=dXfltyFMgNOFZAxr8io9wJ37iUpY42M
 export PACT_BROKER_PASSWORD=O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1
 make fake_ci
