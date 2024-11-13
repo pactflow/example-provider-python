@@ -27,6 +27,8 @@ services:
       ${PACT_URL}
       --provider-base-url http://api:8000
       --provider pactflow-example-provider-python
+      --provider-app-version ${GIT_COMMIT}
+      --provider-version-branch ${GIT_BRANCH}
       --wait 10
   
   pact_verifier_native:
