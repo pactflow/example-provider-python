@@ -18,8 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test
+      - name: Test (ruby standalone - docker)
         run: GIT_BRANCH=${GITHUB_REF:11} make test
+      - name: Test (native standalone - docker)
+        run: GIT_BRANCH=${GITHUB_REF:11} make test_native
 
   # Runs on branches as well, so we know the status of our PRs
   can-i-deploy:
