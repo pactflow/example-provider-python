@@ -20,3 +20,23 @@ async def product(id: str, response: Response):
 
   response.status_code = 404
   return {}
+
+@app.delete("/product/{id}")
+async def delete_product(id: str, response: Response):
+  global catalog
+  catalog = [product for product in catalog if product["id"] != id]
+  response.status_code = 204
+  return catalog
+
+
+@app.post("/_pact/state")
+async def change_state(request: dict, response: Response):
+  state = request.get("state")
+  print(state)
+  if state == "a product with ID 10 exists":
+    catalog.append({ "id": "10", "type": "CREDIT_CARD", "name": "Buy stuff without actually having money" })
+    response.status_code = 200
+    return {"result": "Product with ID 10 added"}
+  else:
+    response.status_code = 400
+    return {"error": "Unknown state"}

@@ -24,12 +24,14 @@ services:
       - GIT_BRANCH
     command: >
       verify
-      ${PACT_URL}
+      /pacts/pactflow-example-consumer-python-pactflow-example-provider-python.json
       --provider-base-url http://api:8000
       --provider pactflow-example-provider-python
-      --provider-app-version ${GIT_COMMIT}
-      --provider-version-branch ${GIT_BRANCH}
+      --log-level debug
       --wait 10
+      --provider-states-setup-url http://api:8000/_pact/state
+    volumes:
+      - ./pacts_ruby:/pacts
   
   pact_verifier_native:
     image: pactfoundation/pact-ref-verifier:latest
@@ -47,7 +49,10 @@ services:
     command: >
       --hostname api
       --port 8000
-      --provider-name pactflow-example-provider-python
+      --provider-name pactflow-example-provider-python-v3
       --loglevel info
-      --provider-version $GIT_COMMIT
-      --provider-branch $GIT_BRANCH
+      --dir /pacts
+      --request-timeout 10000
+      --state-change-url http://api:8000/_pact/state
+    volumes:
+      - ./pacts_rust:/pacts

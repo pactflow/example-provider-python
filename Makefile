@@ -42,10 +42,10 @@ fake_ci_webhook:
 ## =====================
 
 test: .env
-	docker compose up pact_verifier --exit-code-from pact_verifier
+	docker compose up pact_verifier --exit-code-from pact_verifier --build
 	docker compose logs pact_verifier
 test_native: .env
-	docker compose up pact_verifier_native --exit-code-from pact_verifier_native
+	docker compose up pact_verifier_native --exit-code-from pact_verifier_native --build
 	docker compose logs pact_verifier_native
 
 ## =====================
