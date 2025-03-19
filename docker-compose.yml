@@ -32,7 +32,7 @@ services:
       --wait 10
   
   pact_verifier_native:
-    image: pactfoundation/pact-ref-verifier:latest@sha256:c511079f839bf4f291534e36a416f03f4372660851ce4f2aeaffcfd3450e71cf
+    image: pactfoundation/pact-ref-verifier:latest@sha256:1ecf5c23f125144f7cbe072148e810d616cbc6393d11b2cbaaabc502c0b94391
     depends_on:
       - api
     environment:
