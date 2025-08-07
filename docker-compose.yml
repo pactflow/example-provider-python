@@ -10,7 +10,7 @@ services:
       - PORT=8000
 
   pact_verifier:
-    image: pactfoundation/pact-cli:latest@sha256:36684f0114c7c5c5aeb88fe9c11b5c42a0930aa8e7693fe402379fafff3261c4
+    image: pactfoundation/pact-cli:latest@sha256:9002709b948e0849168ff02da7d0430c7f933f866d30f4590979acd0d2a6c54f
     depends_on:
       - api
     environment:
