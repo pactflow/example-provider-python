@@ -39,8 +39,7 @@ make test
 
 To run the "fake ci" task:
 ```
-export PACT_BROKER_BASE_URL=https://test.pactflow.io
-export PACT_BROKER_USERNAME=dXfltyFMgNOFZAxr8io9wJ37iUpY42M
-export PACT_BROKER_PASSWORD=O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1
+export PACT_BROKER_BASE_URL="https://test.pactflow.io"
+export PACT_BROKER_TOKEN="129cCdfCWhMzcC9pFwb4bw"
 make fake_ci
 ```

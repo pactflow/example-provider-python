@@ -4,8 +4,8 @@ services:
       context: .
     volumes:
       - ./app:/app
-    expose:
-      - "8000"
+    ports:
+      - 8000:8000
     environment:
       - PORT=8000
 
