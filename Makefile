@@ -47,6 +47,10 @@ test: .env
 test_native: .env
 	docker compose up pact_verifier_native --exit-code-from pact_verifier_native
 	docker compose logs pact_verifier_native
+run_api:
+	docker compose up api
+run_test_local:
+	python3 app/test/app_spec.py 
 
 ## =====================
 ## Deploy tasks
